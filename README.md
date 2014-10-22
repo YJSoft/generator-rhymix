@@ -1,4 +1,4 @@
-generator-xpressengine
+XpressEngine generator
 ======================
 
-xe
+Yeoman generator for XpressEngine.
