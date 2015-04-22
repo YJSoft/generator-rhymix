@@ -1,7 +1,7 @@
 {
   "name": "generator-xpressengine",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.0.1",
+  "description": "Yeoman Xpressengine generator",
   "license": "MIT",
   "main": "app/index.js",
   "engines": {
@@ -14,7 +14,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.17.0"
+    "yeoman-generator": "^0.17.7"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

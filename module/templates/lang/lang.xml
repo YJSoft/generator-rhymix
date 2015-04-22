@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="<%= module_name %>">
+		<value xml:lang="ko"><![CDATA[<%= module_fullname %>]]></value>
+	</item>
+</lang>

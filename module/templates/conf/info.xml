@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="0.2">
-	<title xml:lang="en">XE Profiler</title>
-	<description xml:lang="en"></description>
-	<version>0.0.0</version>
-	<date>2014-08-02</date>
-	<author email_address="developers@xpressengine.com" link="http://www.xpressengine.com/">
-		<name xml:lang="en">NAVER</name>
+	<title xml:lang="ko"><%= module_fullname %></title>
+	<description xml:lang="ko"><%= module_description %></description>
+	<version><%= module_version %></version>
+	<date><%= module_date %></date>
+	<author email_address="<%= author_email %>" link="<%= author_link %>">
+		<name xml:lang="ko"><%= author_name %></name>
 	</author>
 </module>
