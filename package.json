@@ -10,7 +10,10 @@
   "files": [
     "app",
     "module",
-    "addon"
+    "addon",
+    "widget",
+    "widget_skin",
+    "layout"
   ],
   "keywords": [
     "yeoman-generator"
@@ -21,5 +24,5 @@
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  },
+  }
 }

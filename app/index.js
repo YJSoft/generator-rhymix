@@ -22,6 +22,7 @@ Generator.prototype.askFor = function askFor() {
           checked: true
         },
         'widget',
+		'widget_skin',
         'addon',
         'layout'
       ]

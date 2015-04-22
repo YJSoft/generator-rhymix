@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+	<title xml:lang="ko"><%= module_fullname %></title>
+	<description xml:lang="ko"><%= module_description %></description>
+	<version><%= module_version %></version>
+	<date><%= module_date %></date>
+	<author email_address="<%= author_email %>" link="<%= author_link %>">
+		<name xml:lang="ko"><%= author_name %></name>
+	</author>
+	<menus>
+        <menu name="global_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">전역 메뉴</title>
+            <title xml:lang="en">Global Menu</title>
+            <title xml:lang="jp">グローバルメニュー</title>
+        </menu>
+    </menus>
+</layout>
