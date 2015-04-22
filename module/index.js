@@ -14,7 +14,7 @@ Generator.prototype.askFor = function askFor() {
   var d = new Date();
   var year = d.getFullYear();
   var month = d.getMonth() + 1;
-  var date = getDate();
+  var date = d.getDate();
 
   var prompts = [{
       name: 'module_name',

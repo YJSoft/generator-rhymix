@@ -16,7 +16,7 @@ Generator.prototype.askFor = function askFor() {
   var prompts = [{
       type: 'list',
       name: 'extension_type',
-      message: 'extension_type',
+      message: 'Extension type',
       choices: [{
           name: 'module',
           checked: true
