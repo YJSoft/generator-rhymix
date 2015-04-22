@@ -24,11 +24,7 @@ Generator.prototype.askFor = function askFor() {
 	  date = '0' + date;
   }
 
-  var prompts = [{
-      name: 'module_name',
-      message: 'Layout folder name',
-      default: this.appname
-    },
+  var prompts = [
 	{
       name: 'module_fullname',
       message: 'Layout Name',
@@ -37,7 +33,7 @@ Generator.prototype.askFor = function askFor() {
 	{
       name: 'module_description',
       message: 'Layout description',
-      default: 'Module ' + this.appname
+      default: 'Layout ' + this.appname
     },
 	{
       name: 'module_version',
@@ -67,7 +63,6 @@ Generator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.module_name = props.module_name;
 	this.module_fullname = props.module_fullname;
 	this.module_description = props.module_description;
 	this.module_version = props.module_version;
@@ -87,6 +82,7 @@ Generator.prototype.files = function files() {
 
   //layout file
   this.copy('layout.html', 'layout.html');
+  this.copy('layout.css', 'layout.css');
   this.copy('thumbnail.png', 'thumbnail.png');
 
   //conf
