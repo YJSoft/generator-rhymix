@@ -10,7 +10,11 @@ util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.askFor = function askFor() {
   var done = this.async();
-  var conf = new Configstore('generator-xpressengine');
+  var conf = new Configstore('generator-xpressengine',{
+      author_email: 'someone@example.com',
+      author_link: 'http://example.com',
+      author_name: 'Someone'
+    });
   var d = new Date();
   var year = d.getFullYear();
   var month = d.getMonth() + 1;
@@ -52,21 +56,27 @@ Generator.prototype.askFor = function askFor() {
 	{
       name: 'author_email',
       message: 'Module author email',
-      default: 'someone@example.com'
+      default: conf.get('author_email')
     },
 	{
       name: 'author_link',
       message: 'Module author link',
-      default: 'http://example.com'
+      default: conf.get('author_link')
     },
 	{
       name: 'author_name',
       message: 'Module author name',
-      default: 'Someone'
+      default: conf.get('author_name')
     }
   ];
 
   this.prompt(prompts, function (props) {
+	//config save
+	conf.set('author_email',props.author_email);
+	conf.set('author_link',props.author_link);
+	conf.set('author_name',props.author_name);
+
+	//value set
     this.module_name = props.module_name;
 	this.module_fullname = props.module_fullname;
 	this.module_description = props.module_description;
