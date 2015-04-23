@@ -17,5 +17,8 @@ node.js 설치가 완료되었다면 쉘이나 cmd 등에서 `npm install -g yo 
 
 # 오류 해결
 ## MSBuild 오류
-`C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(35,5): error MSB8020: The builds tools for Visual Studio 2010 (Platform Toolset = 'v100') cannot be found. To build using the v100 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install Visual Studio 2010 to build using the Visual Studio 2010 build tools.` 와 같은 오류가 yo 설치나 generator 설치중 발생한다면 설치된 Visual studio의 버전을 확인해 보세요. Visual studio 2012 버전 이상을 사용하시는 경우 수동으로 버전을 지정해 주어야 합니다.
+
+> C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(35,5): error MSB8020: The builds tools for Visual Studio 2010 (Platform Toolset = 'v100') cannot be found. To build using the v100 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install Visual Studio 2010 to build using the Visual Studio 2010 build tools.
+
+와 같은 오류가 yo 설치나 generator 설치중 발생한다면 설치된 Visual studio의 버전을 확인해 보세요. Visual studio 2012 버전 이상을 사용하시는 경우 수동으로 버전을 지정해 주어야 합니다.
 명령 맨 뒤에 `--msvs_version=2012`를 붙여 지정해 줄 수 있습니다.
