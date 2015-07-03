@@ -1,6 +1,6 @@
 {
   "name": "generator-xpressengine",
-  "version": "0.0.1",
+  "version": "0.1.4",
   "description": "Yeoman Xpressengine generator",
   "license": "MIT",
   "main": "app/index.js",

@@ -2,5 +2,15 @@
 <module>
 	<grants />
 	<permissions />
-	<actions />
+	<actions>
+        <action name="disp<%= module_name.substring(0,1).toLocaleUpperCase() + module_name.substring(1) %>AdminConfig" type="view" admin_index="true" menu_name="menu_<%= module_name %>" menu_index="true" />
+        <action name="disp<%= module_name.substring(0,1).toLocaleUpperCase() + module_name.substring(1) %>AdminTabEx" type="view" />
+        <action name="proc<%= module_name.substring(0,1).toLocaleUpperCase() + module_name.substring(1) %>AdminInsertConfig" type="controller" />
+    </actions>
+    <menus>
+        <menu name="menu_<%= module_name %>" type="all">
+            <title xml:lang="ko"><%= module_fullname %></title>
+            <title xml:lang="en"><%= module_fullname %></title>
+        </menu>
+    </menus>
 </module>

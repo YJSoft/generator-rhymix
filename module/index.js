@@ -4,113 +4,118 @@ var yeoman = require('yeoman-generator');
 var Configstore = require('configstore');
 
 var Generator = module.exports = function Generator(args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
+    yeoman.generators.Base.apply(this, arguments);
 };
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.askFor = function askFor() {
-  var done = this.async();
-  var conf = new Configstore('generator-xpressengine',{
-      author_email: 'someone@example.com',
-      author_link: 'http://example.com',
-      author_name: 'Someone'
+    var done = this.async();
+    var conf = new Configstore('generator-xpressengine',{
+        author_email: 'someone@example.com',
+        author_link: 'http://example.com',
+        author_name: 'Someone'
     });
-  var d = new Date();
-  var year = d.getFullYear();
-  var month = d.getMonth() + 1;
-  if (month<10)
-  {
-	  month = '0' + month;
-  }
-  var date = d.getDate();
-  if (date<10)
-  {
-	  date = '0' + date;
-  }
-
-  var prompts = [{
-      name: 'module_name',
-      message: 'Module ID',
-      default: this.appname
-    },
-	{
-      name: 'module_fullname',
-      message: 'Module Name',
-      default: this.appname
-    },
-	{
-      name: 'module_description',
-      message: 'Module description',
-      default: 'Module ' + this.appname
-    },
-	{
-      name: 'module_version',
-      message: 'Module version',
-      default: '0.0.1'
-    },
-	{
-      name: 'module_date',
-      message: 'Module Create Date',
-      default: year + '-' + month + '-' + date
-    },
-	{
-      name: 'author_email',
-      message: 'Module author email',
-      default: conf.get('author_email')
-    },
-	{
-      name: 'author_link',
-      message: 'Module author link',
-      default: conf.get('author_link')
-    },
-	{
-      name: 'author_name',
-      message: 'Module author name',
-      default: conf.get('author_name')
+    var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth() + 1;
+    if (month<10)
+    {
+        month = '0' + month;
     }
-  ];
+    var date = d.getDate();
+    if (date<10)
+    {
+        date = '0' + date;
+    }
 
-  this.prompt(prompts, function (props) {
-	//config save
-	conf.set('author_email',props.author_email);
-	conf.set('author_link',props.author_link);
-	conf.set('author_name',props.author_name);
+    var prompts = [{
+        name: 'module_name',
+        message: 'Module ID',
+        default: this.appname
+    },
+        {
+            name: 'module_fullname',
+            message: 'Module Name',
+            default: this.appname
+        },
+        {
+            name: 'module_description',
+            message: 'Module description',
+            default: 'Module ' + this.appname
+        },
+        {
+            name: 'module_version',
+            message: 'Module version',
+            default: '0.0.1'
+        },
+        {
+            name: 'module_date',
+            message: 'Module Create Date',
+            default: year + '-' + month + '-' + date
+        },
+        {
+            name: 'author_email',
+            message: 'Module author email',
+            default: conf.get('author_email')
+        },
+        {
+            name: 'author_link',
+            message: 'Module author link',
+            default: conf.get('author_link')
+        },
+        {
+            name: 'author_name',
+            message: 'Module author name',
+            default: conf.get('author_name')
+        }
+    ];
 
-	//value set
-    this.module_name = props.module_name;
-	this.module_fullname = props.module_fullname;
-	this.module_description = props.module_description;
-	this.module_version = props.module_version;
-	this.module_date = props.module_date;
-	this.author_email = props.author_email;
-	this.author_link = props.author_link;
-	this.author_name = props.author_name;
-    done();
-  }.bind(this));
+    this.prompt(prompts, function (props) {
+        //config save
+        conf.set('author_email',props.author_email);
+        conf.set('author_link',props.author_link);
+        conf.set('author_name',props.author_name);
+
+        //value set
+        this.module_name = props.module_name;
+        this.module_fullname = props.module_fullname;
+        this.module_description = props.module_description;
+        this.module_version = props.module_version;
+        this.module_date = props.module_date;
+        this.author_email = props.author_email;
+        this.author_link = props.author_link;
+        this.author_name = props.author_name;
+        done();
+    }.bind(this));
 };
 
 Generator.prototype.files = function files() {
-  //directory
-  this.mkdir('conf');
-  this.mkdir('queries');
-  this.mkdir('lang');
-  this.mkdir('schemas');
-  this.mkdir('tpl');
-  this.mkdir('lang');
+    //directory
+    this.mkdir('conf');
+    this.mkdir('queries');
+    this.mkdir('lang');
+    this.mkdir('schemas');
+    this.mkdir('tpl');
+    this.mkdir('lang');
 
-  //class
-  this.template('class.php', this.module_name + '.class.php');
-  this.template('controller.php', this.module_name + '.controller.php');
-  this.template('model.php', this.module_name + '.model.php');
-  this.template('view.php', this.module_name + '.view.php');
-  this.template('admin.controller.php', this.module_name + '.admin.controller.php');
-  this.template('admin.model.php', this.module_name + '.admin.model.php');
-  this.template('admin.view.php', this.module_name + '.admin.view.php');
+    //class
+    this.template('class.php', this.module_name + '.class.php');
+    this.template('controller.php', this.module_name + '.controller.php');
+    this.template('model.php', this.module_name + '.model.php');
+    this.template('view.php', this.module_name + '.view.php');
+    this.template('admin.controller.php', this.module_name + '.admin.controller.php');
+    this.template('admin.model.php', this.module_name + '.admin.model.php');
+    this.template('admin.view.php', this.module_name + '.admin.view.php');
 
-  //lang
-  this.template('lang/lang.xml', 'lang/lang.xml');
+    //lang
+    this.template('lang/lang.xml', 'lang/lang.xml');
 
-  //conf
-  this.template('conf/module.xml', 'conf/module.xml');
-  this.template('conf/info.xml', 'conf/info.xml');
+    //conf
+    this.template('conf/module.xml', 'conf/module.xml');
+    this.template('conf/info.xml', 'conf/info.xml');
+
+    //tpl
+    this.template('tpl/header.html', 'tpl/header.html');
+    this.template('tpl/config.html', 'tpl/config.html');
+    this.template('tpl/tabex.html', 'tpl/tabex.html');
 };
