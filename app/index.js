@@ -6,7 +6,7 @@ var Configstore = require('configstore');
 var Generator = module.exports = function Generator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  var conf = new Configstore('generator-xpressengine', {});
+  var conf = new Configstore('generator-rhymix', {});
 };
 util.inherits(Generator, yeoman.generators.Base);
 
@@ -32,7 +32,7 @@ Generator.prototype.askFor = function askFor() {
   this.prompt(prompts, function (props) {
     this.extension_type = props.extension_type;
 
-    this.composeWith('xpressengine:' + props.extension_type, {});
+    this.composeWith('rhymix:' + props.extension_type, {});
 
     done();
   }.bind(this));

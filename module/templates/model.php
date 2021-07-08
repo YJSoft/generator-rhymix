@@ -7,13 +7,10 @@ class <%= module_name %>Model extends <%= module_name %>
 
 	/**
 	 * @return Object config object
-	 * @notice this function saves config object to private value $config.
+	 * @notice this function load module config object from db.
 	 */
 	function getConfig()
 	{
-		$oModuleModel = getModel('module');
-		$config = $oModuleModel->getModuleConfig('<%= module_name %>');
-
-		return $config;
+		return ModuleModel::getModuleConfig('<%= module_name %>');
 	}
 }

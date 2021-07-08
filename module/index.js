@@ -10,7 +10,7 @@ util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.askFor = function askFor() {
     var done = this.async();
-    var conf = new Configstore('generator-xpressengine',{
+    var conf = new Configstore('generator-rhymix',{
         author_email: 'someone@example.com',
         author_link: 'http://example.com',
         author_name: 'Someone'
@@ -40,12 +40,12 @@ Generator.prototype.askFor = function askFor() {
         },
         {
             name: 'module_description',
-            message: 'Module description',
+            message: 'Module Description',
             default: 'Module ' + this.appname
         },
         {
             name: 'module_version',
-            message: 'Module version',
+            message: 'Module Version',
             default: '0.0.1'
         },
         {
@@ -55,17 +55,17 @@ Generator.prototype.askFor = function askFor() {
         },
         {
             name: 'author_email',
-            message: 'Module author email',
+            message: 'Module Primary Author Email',
             default: conf.get('author_email')
         },
         {
             name: 'author_link',
-            message: 'Module author link',
+            message: 'Module Primary Author Link',
             default: conf.get('author_link')
         },
         {
             name: 'author_name',
-            message: 'Module author name',
+            message: 'Module Primary Author Name',
             default: conf.get('author_name')
         }
     ];
@@ -75,9 +75,13 @@ Generator.prototype.askFor = function askFor() {
         conf.set('author_email',props.author_email);
         conf.set('author_link',props.author_link);
         conf.set('author_name',props.author_name);
+        
+        //filter some var
+        props.module_name = props.module_name.replace(/[^A-Za-z0-9_]/g, "");
 
         //value set
         this.module_name = props.module_name;
+        this.module_funcname = props.module_name.substring(0,1).toLocaleUpperCase() + module_name.substring(1);
         this.module_fullname = props.module_fullname;
         this.module_description = props.module_description;
         this.module_version = props.module_version;
@@ -85,6 +89,7 @@ Generator.prototype.askFor = function askFor() {
         this.author_email = props.author_email;
         this.author_link = props.author_link;
         this.author_name = props.author_name;
+        
         done();
     }.bind(this));
 };
@@ -108,7 +113,18 @@ Generator.prototype.files = function files() {
     this.template('admin.view.php', this.module_name + '.admin.view.php');
 
     //lang
-    this.template('lang/lang.xml', 'lang/lang.xml');
+    this.template('lang/lang.php', 'lang/de.php');
+    this.template('lang/lang.php', 'lang/en.php');
+    this.template('lang/lang.php', 'lang/es.php');
+    this.template('lang/lang.php', 'lang/fr.php');
+    this.template('lang/lang.php', 'lang/ja.php');
+    this.template('lang/lang.php', 'lang/ko.php');
+    this.template('lang/lang.php', 'lang/mn.php');
+    this.template('lang/lang.php', 'lang/ru.php');
+    this.template('lang/lang.php', 'lang/tr.php');
+    this.template('lang/lang.php', 'lang/vi.php');
+    this.template('lang/lang.php', 'lang/zh-CN.php');
+    this.template('lang/lang.php', 'lang/zh-TW.php');
 
     //conf
     this.template('conf/module.xml', 'conf/module.xml');

@@ -1,7 +1,7 @@
 {
-  "name": "generator-xpressengine",
+  "name": "generator-rhymix",
   "version": "0.1.4",
-  "description": "Yeoman Xpressengine generator",
+  "description": "Yeoman Rhymix generator",
   "license": "MIT",
   "main": "app/index.js",
   "engines": {

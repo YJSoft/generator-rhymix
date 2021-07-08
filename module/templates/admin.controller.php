@@ -5,7 +5,7 @@ class <%= module_name %>AdminController extends <%= module_name %>
 	{
 	}
 
-	function proc<%= module_name.substring(0,1).toLocaleUpperCase() + module_name.substring(1) %>AdminInsertConfig()
+	function proc<%= module_funcname %>AdminInsertConfig()
 	{
 		$vars = Context::getRequestVars();
 
